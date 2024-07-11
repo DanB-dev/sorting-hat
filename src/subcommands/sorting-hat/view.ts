@@ -1,15 +1,10 @@
-import {
-  ActionRowBuilder,
-  CacheType,
-  ChatInputCommandInteraction,
-  GuildMember,
-} from 'discord.js';
+import { CacheType, ChatInputCommandInteraction } from 'discord.js';
 
 import { ClientInt } from '../../utils/ClientInt';
 import BaseSubCommandExecutor from '../../utils/BaseSubcommandExecutor';
 import { Group } from '../../utils/BaseSlashSubCommand';
 
-const houseList = ['Smytherin', 'Rosslepuff', 'Trottindor', 'RavenCraig'];
+const houseList = ['Smytherin', 'Rosslepuff', 'Trottindor', 'CreggleClaw'];
 
 class View extends BaseSubCommandExecutor {
   constructor(baseCommand: string, group: Group) {

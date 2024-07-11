@@ -3,7 +3,7 @@ import { BaseSlashSubCommand } from '../../utils/BaseSlashSubCommand';
 
 class HouseSubCommand extends BaseSlashSubCommand {
   constructor() {
-    super('sorting-hat', [], ['join', 'leave', 'houses']);
+    super('sorting-hat', [], ['join', 'leave', 'houses', 'ranking']);
   }
 
   getCommandJSON() {
@@ -30,6 +30,11 @@ class HouseSubCommand extends BaseSlashSubCommand {
         subcommand
           .setName('houses')
           .setDescription('View the houses in Hatwarts!')
+      )
+      .addSubcommand((subcommand) =>
+        subcommand
+          .setName('ranking')
+          .setDescription('View the ranking of houses in Hatwarts!')
       )
       .toJSON();
   }
