@@ -1,19 +1,18 @@
 import {
-  ActionRowBuilder,
   CacheType,
   ChatInputCommandInteraction,
   GuildMember,
-} from 'discord.js';
+} from "discord.js";
 
-const houseList = ['Smytherin', 'Rosslepuff', 'Trottindor', 'RavenCraig'];
+const houseList = ["Smytherin", "Rosslepuff", "Trottindor", "CreggleClaw"];
 
-import { ClientInt } from '../../utils/ClientInt';
-import BaseSubCommandExecutor from '../../utils/BaseSubcommandExecutor';
-import { Group } from '../../utils/BaseSlashSubCommand';
+import { ClientInt } from "../../utils/ClientInt";
+import BaseSubCommandExecutor from "../../utils/BaseSubcommandExecutor";
+import { Group } from "../../utils/BaseSlashSubCommand";
 
 class Join extends BaseSubCommandExecutor {
   constructor(baseCommand: string, group: Group) {
-    super(baseCommand, group, 'join');
+    super(baseCommand, group, "join");
   }
 
   async run(
@@ -21,7 +20,7 @@ class Join extends BaseSubCommandExecutor {
     interaction: ChatInputCommandInteraction<CacheType>
   ) {
     const member = interaction.member as GuildMember;
-    const house = interaction.options.getString('house', true);
+    const house = interaction.options.getString("house", true);
 
     // check if there is a role with the house name
     const role = member.guild.roles.cache.find(
