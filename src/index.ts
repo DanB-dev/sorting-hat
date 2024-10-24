@@ -2,7 +2,7 @@ import { GatewayIntentBits, Partials, REST, Routes } from "discord.js";
 import "dotenv/config";
 import "reflect-metadata";
 import { ClientInt } from "./utils/ClientInt";
-import { registerCommands, registerSubCommands } from "./utils/registry";
+import { registerSubCommands } from "./utils/registry";
 import { handleButtonInteraction, handleSubcommand } from "./utils/Helpers";
 
 // Get environment variables
@@ -15,6 +15,7 @@ const client = new ClientInt({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessagePolls,
   ],
   partials: [Partials.GuildMember],
 });

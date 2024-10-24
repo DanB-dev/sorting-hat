@@ -1,12 +1,12 @@
-import { CacheType, ChatInputCommandInteraction } from 'discord.js';
+import { CacheType, ChatInputCommandInteraction } from "discord.js";
 
-import { ClientInt } from '../../utils/ClientInt';
-import BaseSubCommandExecutor from '../../utils/BaseSubcommandExecutor';
-import { Group } from '../../utils/BaseSlashSubCommand';
+import { ClientInt } from "../../utils/ClientInt";
+import BaseSubCommandExecutor from "../../utils/BaseSubcommandExecutor";
+import { Group } from "../../utils/BaseSlashSubCommand";
 
 class Ranking extends BaseSubCommandExecutor {
   constructor(baseCommand: string, group: Group) {
-    super(baseCommand, group, 'ranking');
+    super(baseCommand, group, "ranking");
   }
 
   async run(
@@ -18,10 +18,10 @@ class Ranking extends BaseSubCommandExecutor {
     // Create an array of objects with the house name and the number of members
 
     const houseList = [
-      '1216014611028115472',
-      '1216014648252432434',
-      '1216014899520737352',
-      '1216014857149612102',
+      "1216014611028115472",
+      "1216014648252432434",
+      "1216014899520737352",
+      "1216014857149612102",
     ];
 
     const houseCount: { roleName: string; membersCount: number }[] = [];
@@ -44,12 +44,14 @@ class Ranking extends BaseSubCommandExecutor {
     //Add a nice Embed to display the ranking of houses
 
     const embed = {
-      title: 'Ranking of Houses by Members Count',
+      title: "Ranking of Houses by Members Count",
       description: houseCount
         .map((house, index) => `${index + 1}. ${house.roleName}`)
-        .join('\n'),
+        .join("\n"),
     };
 
     interaction.reply({ embeds: [embed], ephemeral: false });
   }
 }
+
+export default Ranking;
