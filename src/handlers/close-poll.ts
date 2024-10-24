@@ -49,15 +49,16 @@ class CobotClose extends ContextMenuBaseCommand {
 
     // Delete the poll message
     await targetMessage.delete();
+    if (interaction.channel?.isSendable()) {
+      await interaction.channel?.send({
+        content: "The poll has been closed, no more votes can be cast.",
+      });
 
-    await interaction.channel?.send({
-      content: "The poll has been closed, no more votes can be cast.",
-    });
-
-    await interaction.reply({
-      content: "The poll has been closed successfully.",
-      ephemeral: true,
-    });
+      await interaction.reply({
+        content: "The poll has been closed successfully.",
+        ephemeral: true,
+      });
+    }
   }
 }
 

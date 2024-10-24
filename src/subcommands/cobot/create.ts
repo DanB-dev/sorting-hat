@@ -31,41 +31,44 @@ class CobotCreate extends BaseSubCommandExecutor {
       });
       return;
     }
-    await interaction.channel
-      ?.send({
-        poll: {
-          question: {
-            text: "What time will the boiks go live?",
+
+    if (interaction.channel?.isSendable()) {
+      await interaction.channel
+        ?.send({
+          poll: {
+            question: {
+              text: "What time will the boiks go live?",
+            },
+            answers: [
+              {
+                text: "12:00",
+              },
+              {
+                text: "13:00",
+              },
+              {
+                text: "14:00",
+              },
+            ],
+            duration: 12,
+            allowMultiselect: false,
+            layoutType: PollLayoutType.Default,
           },
-          answers: [
-            {
-              text: "12:00",
-            },
-            {
-              text: "13:00",
-            },
-            {
-              text: "14:00",
-            },
-          ],
-          duration: 12,
-          allowMultiselect: false,
-          layoutType: PollLayoutType.Default,
-        },
-      })
-      .catch((error) => {
-        console.error("Error creating poll", error);
-        interaction.reply({
-          content: "Error creating poll",
-          ephemeral: true,
+        })
+        .catch((error) => {
+          console.error("Error creating poll", error);
+          interaction.reply({
+            content: "Error creating poll",
+            ephemeral: true,
+          });
+        })
+        .then(() => {
+          return interaction.reply({
+            content: "Poll created",
+            ephemeral: true,
+          });
         });
-      })
-      .then(() => {
-        return interaction.reply({
-          content: "Poll created",
-          ephemeral: true,
-        });
-      });
+    }
   }
 }
 

@@ -52,15 +52,17 @@ class CobotClose extends BaseSubCommandExecutor {
     await targetMessage.delete();
 
     // Inform the channel that the poll has been closed
-    await interaction.channel?.send({
-      content: "The poll has been closed, no more votes can be cast",
-    });
+    if (interaction.channel?.isSendable()) {
+      await interaction.channel?.send({
+        content: "The poll has been closed, no more votes can be cast",
+      });
 
-    await interaction.reply({
-      content:
-        "The poll has been closed, no more votes can be cast, no winners will be declared",
-      ephemeral: true,
-    });
+      await interaction.reply({
+        content:
+          "The poll has been closed, no more votes can be cast, no winners will be declared",
+        ephemeral: true,
+      });
+    }
   }
 }
 
