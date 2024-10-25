@@ -1,6 +1,5 @@
 import { GatewayIntentBits, Partials, REST, Routes } from "discord.js";
 import "dotenv/config";
-import "reflect-metadata";
 import { ClientInt } from "./utils/ClientInt";
 import { registerSubCommands } from "./utils/registry";
 import { handleButtonInteraction, handleSubcommand } from "./utils/Helpers";

@@ -1,7 +1,6 @@
-import * as path from "path";
-import * as fs from "fs";
+import path from "path";
+import fs from "fs";
 import { ClientInt } from "./ClientInt";
-import { Collection } from "discord.js";
 
 /**
  * A function to register all the commands.
@@ -28,7 +27,7 @@ import { Collection } from "discord.js";
  */
 export const registerCommands: Function = async (
   client: ClientInt,
-  dir = ""
+  dir: string = ""
 ): Promise<void> => {
   const filePath = path.join(__dirname, dir);
   const files = await fs.promises.readdir(filePath);
@@ -84,7 +83,7 @@ export const registerCommands: Function = async (
  */
 export const registerSubCommands: Function = async (
   client: ClientInt,
-  dir = "../subcommands"
+  dir: string = "../subcommands"
 ): Promise<void> => {
   const filePath = path.join(__dirname, dir);
   console.log(`[REGISTRY]: Scanning directory: ${filePath}`);

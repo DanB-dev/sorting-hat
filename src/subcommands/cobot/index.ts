@@ -1,4 +1,4 @@
-import { ContextMenuCommandBuilder, SlashCommandBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import { BaseSlashSubCommand } from "../../utils/BaseSlashSubCommand";
 
 class CobotSubCommand extends BaseSlashSubCommand {
